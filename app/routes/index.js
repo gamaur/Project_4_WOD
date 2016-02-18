@@ -13,7 +13,10 @@ router.get('/', function(req, res, next) {
 
 // users resource paths:
 router.get('/users',     usersController.index);
-router.get('/users/:id', usersController.show);// users resource paths:
+router.get('/users/:id', usersController.show);
+router.post('/users/new', usersController.create);
+router.put('/users/:id', usersController.update);
+router.delete('/users/:id', usersController.destroy);
 
 //workouts resource paths:
 router.get('/workouts',     workoutsController.index);
