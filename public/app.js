@@ -2,6 +2,6 @@
   "use strict";
 
   angular
-    .module('workoutOfDay', []);
+    .module('workoutOfDay', ['ui.router']);
 
 })();

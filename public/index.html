@@ -8,11 +8,21 @@
       <link rel="stylesheet" href="/assets/css/main.css">
 
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+
   </head>
     <body ng-controller="MainController as vm">
       <h1>Workout Of The Day</h1>
 
-      <div class="workout-list" ng-repeat="workout in vm.workouts | orderBy: '-fav_counter' ">
+      <button ui-sref-active="active" ui-sref="home"> Home </button>
+      <button ui-sref-active="active" ui-sref="activities"> Activities </button>
+      <button ui-sref-active="active" ui-sref="about"> About </button>
+
+      <ui-view>
+
+      </ui-view>
+
+<!-- <div class="activity-list" ng-repeat="activity in vm.activities | orderBy: '-fav_counter' ">
          <h4>{{workout.title}} </h4>
          <span ng-click="vm.addFavCount(favorite)">
             <i ng-class="{'glyphicon glyphicon-heart': liked, 'glyphicon glyphicon-heart-empty': !liked}" ng-click="liked=!liked"></i>
@@ -40,7 +50,7 @@
        <p><input type="radio" ng-model="vm.ab_mat" ng-value="false"> Ab Mat</p>
        <p> Summary: <input type="text" ng-model="vm.summary"> </p>
        <button ng-click="submit">Submit</button>
-     </form>
+     </form> -->
 
 
 
@@ -48,6 +58,8 @@
 
   <!-- Angular Scripts -->
   <script src="/app.js"></script>
+  <script src="/app.routes.js"></script>
+  <script src="/services/workout.dataservice.js"></script>
   <script src="/controllers/main_controller.js"></script>
     </body>
   </html>
