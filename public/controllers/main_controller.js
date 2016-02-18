@@ -89,9 +89,12 @@ vm.addFavCount = addFavCount;
             activity_date: new Date,
             favorite: false,
             fav_counter: 0,
-            comments: ""
-          }
-        );
+            comments: [
+            {author: "Theo", body: "This workout kicked my ass!"},
+            {author: "Linus", body: "This workout can get a repetitive."}
+            ]
+            }
+          );
         vm.title = "";
         vm.warm_up = "";
         vm.rounds = "";

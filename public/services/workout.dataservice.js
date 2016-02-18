@@ -26,7 +26,9 @@
           workout_date: new Date(2016, 1, 1),
           favorite: false,
           fave_counter: 3,
-          comments: ""
+          comments: [
+          {author: "Jo", body: "This workout can get sweaty"}
+          ]
         },
         {
           title: "workout 2",
@@ -44,7 +46,10 @@
           workout_date: new Date(2016, 1, 2),
           favorite: false,
           fave_counter: 5,
-          comments: ""
+          comments: [
+          {author: "Patrick", body: "My gf liked this workout!"},
+          {author: "Andrew", body: "This workout is pretty fun."}
+          ]
         },
         {
           title: "workout 3",
@@ -62,7 +67,7 @@
           workout_date: new Date(2016, 1, 3),
           favorite: false,
           fave_counter: 10,
-          comments: ""
+          comments: []
         }
       ];
 
