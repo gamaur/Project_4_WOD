@@ -4,6 +4,7 @@
       <meta charset="UTF-8">
       <title>Workout Of The Day</title>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
       <link rel="stylesheet" href="/assets/css/main.css">
 
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
@@ -13,10 +14,15 @@
 
       <div class="workout-list" ng-repeat="workout in vm.workouts | orderBy: '-fav_counter' ">
          <h4>{{workout.title}} </h4>
+         <span ng-click="vm.addFavCount(favorite)">
+            <i ng-class="{'glyphicon glyphicon-heart': liked, 'glyphicon glyphicon-heart-empty': !liked}" ng-click="liked=!liked"></i>
+        </span>
+         <p> Favorite: {{workout.favorite}} </p>
+         <p> Fav'd: {{workout.fav_counter}} </p>
          <p> {{workout.workout_date | date:"MM/dd/yyyy"}} </p>
          <p> {{workout.summary}} </p>
-         <p> Fav'd: {{workout.fav_counter}} </p>
    </div>
+
       <form class="workout-form" ng-submit="vm.addWorkout()">
        <h4>Add a Workout</h4>
        <p> Title: <input type="text" ng-model="vm.title"> </p>

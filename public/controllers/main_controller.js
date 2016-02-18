@@ -68,6 +68,7 @@
       ];
 
 vm.addWorkout = addWorkout;
+vm.addFavCount = addFavCount;
 
       function addWorkout(){
         vm.workouts.push(
@@ -96,6 +97,16 @@ vm.addWorkout = addWorkout;
         vm.set_length = "";
         vm.summary = "";
       };
+
+      function addFavCount(workout){
+        $log.log("click");
+        workout.favorite = !workout.favorite;
+        if (workout.favorite === true){
+          (workout.fav_counter +=1)
+        } else {
+          (workout.fav_counter -=1)
+       };
+     };
 
     };
 
