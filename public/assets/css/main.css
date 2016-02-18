@@ -1,9 +1,15 @@
 a {
     color: #00B7FF;
   }
- +
- +.activity {
- +  border: 1px solid black;
- +  margin: 5px;
- +  padding-left: 5px;
- +}
+
+ .workout-list {
+   border: 1px solid black;
+   margin: 5px;
+   padding-left: 5px;
+ }
+
+ .workout-form {
+  border: 1px dashed blue;
+  margin: 5px;
+  padding: 5px;
+ }

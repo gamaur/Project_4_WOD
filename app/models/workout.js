@@ -4,7 +4,7 @@ var mongoose = require('mongoose'),
 var workoutSchema = new mongoose.Schema({
   title: String,
   warm_up: String,
-  rounds: Number,
+  rounds: String,
   set_length: String,
   medium_weights: Boolean,
   heavy_weights: Boolean,
@@ -17,6 +17,7 @@ var workoutSchema = new mongoose.Schema({
   image_url: String,
   activity_date: Date,
   favorite: Boolean,
+  fav_counter: Number,
   comments: [{type: mongoose.Schema.Types.ObjectId, ref: 'Comment'}]
 });
 

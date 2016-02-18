@@ -11,11 +11,25 @@
     <body ng-controller="MainController as vm">
       <h1>Workout Of The Day</h1>
 
-      <div class="workout" ng-repeat="workout in vm.workouts | orderBy: '-workout_date' ">
+      <div class="workout-list" ng-repeat="workout in vm.workouts | orderBy: '-fav_counter' ">
          <h4>{{workout.title}} </h4>
          <p> {{workout.workout_date | date:"MM/dd/yyyy"}} </p>
          <p> {{workout.summary}} </p>
+         <p> Fav'd: {{workout.fav_counter}} </p>
    </div>
+      <form class="workout-form" ng-submit="vm.addWorkout()">
+       <h4>Add a Workout</h4>
+       <p> Title: <input type="text" ng-model="vm.title"> </p>
+       <p> Warm-up: <input type="text" ng-model="vm.warm_up"> </p>
+       <p> Rounds: <input type="text" ng-model="vm.rounds"> </p>
+       <p> Set Length: <input type="text" ng-model="vm.set_length"> </p>
+       <p> <input type="radio" ng-model="vm.medium_weights" ng-value="true"> Medium Weights <input type="radio" ng-model="vm.heavy_weights" ng-value="false"> Heavy Weights </p>
+       <p> <input type="radio" ng-model="vm.jumprope" ng-value="true"> Jumprope <input type="radio" ng-model="vm.resistance_bands" ng-value="false"> Resistance Bands</p>
+       <p> <input type="radio" ng-model="vm.kettle_ball" ng-value="true"> Kettle Bell <input type="radio" ng-model="vm.slam_ball" ng-value="false"> Slam Ball</p>
+       <p><input type="radio" ng-model="vm.ab_mat" ng-value="false"> Ab Mat</p>
+       <p> Summary: <input type="text" ng-model="vm.summary"> </p>
+       <button ng-click="submit">Submit</button>
+     </form>
 
 
 
