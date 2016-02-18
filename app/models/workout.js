@@ -5,7 +5,7 @@ var workoutSchema = new mongoose.Schema({
   title: String,
   warm_up: String,
   rounds: Number,
-  set_length: String
+  set_length: String,
   medium_weights: Boolean,
   heavy_weights: Boolean,
   jumprope: Boolean,

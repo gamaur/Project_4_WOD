@@ -72,13 +72,13 @@ var workouts = [
   }
 ];
 
-Activity.remove({}, function(err) {
+Workout.remove({}, function(err) {
   if (err) console.log(err);
-  Activity.create(activities, function(err, activities) {
+  Workout.create(workouts, function(err, workouts`) {
     if (err) {
       console.log(err);
     } else {
- +      console.log("Database seeded with " + activities.length  + " activities.");
+ +      console.log("Database seeded with " + workouts.length  + " workouts.");
  +      mongoose.disconnect();
  +    }
  +  });

@@ -10,7 +10,7 @@ var index = function(req, res, next){
 
 var show = function(req, res, next){
   Workout.findById(req.params.id, function(error, workout){
-    if (error) res.json({message: 'Could not find workout because ' error});
+    if (error) res.json({message: 'Could not find workout because ' + error});
     res.render('workouts/show', {workout: workout});
   });
 };
