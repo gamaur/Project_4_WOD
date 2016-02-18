@@ -19,5 +19,7 @@ router.get('/users/:id', usersController.show);// users resource paths:
 router.get('/workouts',     workoutsController.index);
 router.get('/workouts/:id', workoutsController.show);
 router.post('/workouts/new', workoutsController.create);
+router.put('/workouts/:id', workoutsController.update);
+router.delete('/workouts/:id', workoutsController.destroy);
 
 module.exports = router;

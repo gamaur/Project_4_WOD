@@ -2,6 +2,7 @@ var mongoose = require('mongoose'),
     debug    = require('debug')('app:models');
 
 var workoutSchema = new mongoose.Schema({
+  author: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
   title: String,
   warm_up: String,
   rounds: String,
@@ -14,7 +15,6 @@ var workoutSchema = new mongoose.Schema({
   slam_ball: Boolean,
   ab_mat: Boolean,
   summary: String,
-  image_url: String,
   activity_date: Date,
   favorite: Boolean,
   fav_counter: {type: Number, default: 0},
