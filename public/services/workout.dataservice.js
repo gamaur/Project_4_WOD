@@ -2,14 +2,14 @@
   "use strict";
 
   angular
-    .module("playtimePicks")
-    .factory("activityDataService", activityDataService);
+    .module("workoutOfDay")
+    .factory("workoutDataService", workoutDataService);
 
-  activityDataService.$inject = [];
+  workoutDataService.$inject = [];
 
-  function activityDataService(){
+  function workoutDataService(){
 
-    var activities= [
+    var workouts= [
         {
           title: "workout 1",
           warm_up: "12 minutes",
@@ -112,6 +112,6 @@
     //    };
     //  };
 
-    return activities;
+    return workouts;
   };
 })();
