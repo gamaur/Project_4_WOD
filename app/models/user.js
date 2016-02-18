@@ -4,7 +4,6 @@ var mongoose = require('mongoose'),
 var userSchema = new mongoose.Schema({
   name:   String,
   email: String,
-  googleId: String,
   workouts: [{type: mongoose.Schema.Types.ObjectId, ref: 'Workout'}],
   fav_workouts: [{type: mongoose.Schema.Types.ObjectId, ref: 'Workout'}]
 });
