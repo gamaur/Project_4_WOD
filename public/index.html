@@ -20,6 +20,11 @@
          <p> Favorite: {{workout.favorite}} </p>
          <p> Fav'd: {{workout.fav_counter}} </p>
          <p> {{workout.workout_date | date:"MM/dd/yyyy"}} </p>
+         <p>
+         <span ng-show="workout.medium_weights">Medium Weights </span> <span ng-hide="workout.heavy_weights">Heavy Weights</span>
+         | <span ng-show="workout.jumprope">Jumprope</span> <span ng-hide="workout.resistance_bands">Resistance Bands</span>
+         | <span ng-show="workout.kettle_ball"> Kettle Ball</span> <span ng-hide="workout.slam_ball"> Slam Ball</span>
+         </p>
          <p> {{workout.summary}} </p>
    </div>
 

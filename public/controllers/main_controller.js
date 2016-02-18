@@ -99,7 +99,7 @@ vm.addFavCount = addFavCount;
       };
 
       function addFavCount(workout){
-        $log.log("click");
+        // $log.log("click");
         workout.favorite = !workout.favorite;
         if (workout.favorite === true){
           (workout.fav_counter +=1)
