@@ -17,7 +17,7 @@ var workoutSchema = new mongoose.Schema({
   image_url: String,
   activity_date: Date,
   favorite: Boolean,
-  fav_counter: Number,
+  fav_counter: {type: Number, default: 0},
   comments: [{type: mongoose.Schema.Types.ObjectId, ref: 'Comment'}]
 });
 

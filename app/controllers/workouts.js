@@ -15,7 +15,22 @@ var show = function(req, res, next){
   });
 };
 
+var create = function(req, res, next){
+  var workout = new Workout();
+
+  workout.title = req.body.title;
+
+  workout.save(function(err, savedWorkout){
+    if (err){
+      res.send(err)
+    }
+    console.log("Workout saved")
+    res.json(savedWorkout);
+  });
+};
+
 module.exports = {
   index: index,
-  show:  show
+  show:  show,
+  create: create
 };

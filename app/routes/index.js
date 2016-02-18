@@ -4,6 +4,7 @@ var router = express.Router();
 // Require controllers.
 var usersController   = require('../controllers/users');
 var workoutsController   = require('../controllers/workouts');
+var commentsController = require('../controllers/comments');
 
 // GET home page
 router.get('/', function(req, res, next) {
@@ -14,8 +15,9 @@ router.get('/', function(req, res, next) {
 router.get('/users',     usersController.index);
 router.get('/users/:id', usersController.show);// users resource paths:
 
-//activities resource paths:
+//workouts resource paths:
 router.get('/workouts',     workoutsController.index);
 router.get('/workouts/:id', workoutsController.show);
+router.post('/workouts/new', workoutsController.create);
 
 module.exports = router;
