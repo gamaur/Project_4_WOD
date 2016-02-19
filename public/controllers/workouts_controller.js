@@ -19,7 +19,6 @@ function WorkoutsController($state, $log, $scope, $http, workoutDataService, use
      vm.isLoggedIn = authService.isLoggedIn;
 
      vm.getWorkouts();
-
      vm.createWorkout = createWorkout;
      vm.getWorkout = getWorkout;
      vm.addFavCount = addFavCount;
@@ -62,7 +61,7 @@ function WorkoutsController($state, $log, $scope, $http, workoutDataService, use
         // $log.log(vm.workoutData);
       };
 
-      function getActivity(id){
+      function getWorkout(id){
         workoutDataService.getWorkout(id).then(function(response){
           vm.workout = response.data;
         // $log.log("workout is " +vm.workout.title);

@@ -5,7 +5,7 @@ html{
 body {
   padding: 20px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background: linear-gradient(#efdaba, #97b34b) no-repeat center center fixed;
+  backg
   background-size: cover;
   min-height: 100%;
 }
@@ -48,15 +48,31 @@ a {
   border-top: 1px solid #eee;
 }
 
-.activity-info{
+.workout-info{
   text-align: center;
 }
 
-.activity-summary {
+.workout-summary {
   border: 1px solid grey;
   width: 500px;
   margin: auto;
   padding: 5px;
+}
+
+.workout-form {
+  display: inline-block;
+  text-align: center;
+  border: 1px solid black;
+  margin: auto;
+  padding: 5px;
+  width: 400px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.workout-form .title-field {
+  width: 20em;
 }
 
 /*Comment Form*/
@@ -136,7 +152,7 @@ a {
   border: 1px solid black;
   margin: 5px auto;
   padding: 5px;
-  width: 400px;
+  width: 700px;
   background-color: white;
   border-radius: 0 0 0.5em 0.5em;
 }
@@ -180,6 +196,31 @@ a {
 .register-form h4, input, button {
   margin: 5px;
 }
+
+/*Home Container*/
+.home-container {
+  border: 1px solid black;
+  margin: 10px auto;
+  padding: 10px;
+  max-width: 600px;
+  align-items: center;
+  background-color: white;
+  border-radius: 0 0 0.5em 0.5em;
+}
+
+.home-container h1 {
+  font-family: 'Butterfly Kids', cursive;
+  text-align: center;
+  margin-top: 10px
+}
+
+.home-container hr {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border: 0;
+  border-top: 1px solid black;
+}
+
 
 /*About Container*/
 .about-container {

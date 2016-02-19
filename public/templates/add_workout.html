@@ -1,10 +1,11 @@
 <!-- Create Activity Form -->
-    <form class="workout-form" ng-submit="vm.createWorkout()">
+<div class="workout-form">
+    <form ng-submit="vm.createWorkout()">
        <h4>Add a Workout</h4>
          <div> Title: <input type="text" ng-model="vm.workoutData.title"> </div>
-         <p> Warm-up: <input type="text" ng-model="vm.workoutData.warm_up"> </p>
-         <p> Rounds: <input type="text" ng-model="vm.workoutData.rounds"> </p>
-         <p> Set Length: <input type="text" ng-model="vm.workoutData.set_length"> </p>
+         <div> Warm-up: <input type="text" ng-model="vm.workoutData.warm_up"> </div>
+         <div> Rounds: <input type="text" ng-model="vm.workoutData.rounds"> </div>
+         <div> Set Length: <input type="text" ng-model="vm.workoutData.set_length"> </div>
          <table id="radio-table">
           <tr>
             <td><input type="radio" ng-model="vm.workoutData.medium_weights" ng-value="true">Medium Weights</td>
@@ -19,9 +20,11 @@
             <td><input type="radio" ng-model="vm.workoutData.slam_ball" ng-value="false"> Slam Ball</td>
           </tr>
           </table>
+          <br>
           <div> Summary:
             <input class="summary-field" type="text" ng-model="vm.workoutData.summary">
             </div>
+            <br>
        <button ng-click="submit">Submit</button>
         </form>
       </div>
