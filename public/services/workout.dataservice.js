@@ -8,16 +8,13 @@
   workoutDataService.$inject = ["$http"];
 
   function workoutDataService($http){
-    var vm = this;
-    var workouts = [];
+    var workouts = {};
 
-    vm.getWorkouts = getWorkouts;
+    workouts.all = [];
 
-    vm.getWorkouts();
-
-    function getWorkouts() {
-      $http.get('/api/workouts').then(function(response) {
-        vm.workouts = response.data;
+    workouts.getWorkouts = function() {
+      return $http.get('/api/workouts').then(function(response) {
+        workouts.all = response.data;
       }, function(errRes) {
         console.error('Error getting workouts!', errRes);
       });

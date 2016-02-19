@@ -11,6 +11,19 @@ function WorkoutsController($log, $scope, $http, activityDataService){
      var vm = this;
      vm.workout= workoutDataService;
 
+     vm.getWorkouts = getWorkouts;
+
+     vm.workouts = vm.workout.all;
+
+     vm.getWorkouts();
+
+     $log.log(vm.workouts);
+
+     function getWorkouts (){
+        vm.workout.getWorkouts();
+        vm.workouts = vm.workout.all;
+     }
+
     // vm.addComment = addComment;
 
       // function addComment(){

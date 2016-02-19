@@ -12,12 +12,15 @@
     $stateProvider
       .state("home", {
         url: "/",
-        templateUrl: "/templates/home.html"
+        templateUrl: "/templates/home.html",
+        controller: "WorkoutsController",
+        controllerAs: "vm"
       })
       .state("workouts", {
         url: "/workouts/{id}",
         templateUrl: "/templates/workouts.html",
-        controller: "WorkoutsController"
+        controller: "WorkoutsController",
+        controllerAs: "vm"
       })
       .state("about", {
         url: "/about",
