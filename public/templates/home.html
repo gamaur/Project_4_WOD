@@ -15,12 +15,22 @@
    </div>
 
    <div class="filter-form">
-     <p> <input type="radio" ng-model="filter.medium_weights" value="true"> Medium Weights
-         <input type="radio" ng-model="filter.medium_weights" value="false"> Heavy Weights</p>
-     <p> <input type="radio" ng-model="filter.jump_rope" value="true"> Jumprope
-         <input type="radio" ng-model="filter.jump_rope" value="false"> Resistance Bands</p>
-     <p> <input type="radio" ng-model="filter.kettle_ball" value="true"> Kettle Ball
-         <input type="radio" ng-model="filter.kettle_ball" value="false"> Slam Ball</p>
+      <h4> Filter Workouts </h4>
+      <p> Select one option from each line to filter your choices </p>
+      <table id="radio-table">
+          <tr>
+             <td><input type="radio" ng-model="filter.medium_weights" value="true"> Medium Weights </td>
+             <td><input type="radio" ng-model="filter.medium_weights" value="false"> Heavy Weights</td>
+           </tr>
+           <tr>
+             <td><input type="radio" ng-model="filter.jump_rope" value="true"> Jumprope </td>
+             <td><input type="radio" ng-model="filter.jump_rope" value="false"> Resistance Bands</td>
+           </tr>
+           <tr>
+             <td> <input type="radio" ng-model="filter.kettle_ball" value="true"> Kettle Ball</td>
+             <td><input type="radio" ng-model="filter.kettle_ball" value="false"> Slam Ball</td>
+           </tr>
+       </table>
    </div>
 
 <form class="workout-form" ng-submit="vm.addWorkout()">
