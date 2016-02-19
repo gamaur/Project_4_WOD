@@ -28,7 +28,7 @@
 
     //Get a single user
     users.getUser = function(id) {
-        return $http.get('/api/users/'id);
+      return $http.get('/api/users/' + id);
     };
 
     //Update an user

@@ -25,6 +25,5 @@
             $state.go('workouts');
           });
       }
-          $log.log(vm.currentUser);
   }
 })();

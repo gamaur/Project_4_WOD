@@ -1,0 +1,26 @@
+<div class="workout-list" ng-repeat="workout in vm.workouts | filter:{_id:$location.path()}">
+    <h4> {{workout.title}} </h4>
+    <span ng-click="vm.addFavCount(workout)">
+      <i ng-class="{'glyphicon glyphicon-heart': liked, 'glyphicon glyphicon-heart-empty': !liked}" ng-click="liked=!liked"></i>
+    </span>
+    <p> Favorite: {{workout.favorite}} </p>
+    <p> Fav'ed: {{workout.fav_counter}} </p>
+    <p> {{workout.workout_date | date:"MM/dd/yyyy"}} </p>
+      <span ng-show="workout.medium_weights">Medium Weights </span>
+      <span ng-hide="workout.heavy_weights">Heavy Weights</span>
+      | <span ng-show="workout.jumprope">Jumprope</span> <span ng-hide="workout.resistance_bands">Resistance Bands</span>
+      | <span ng-show="workout.kettle_ball"> Kettle Ball</span> <span ng-hide="workout.slam_ball"> Slam Ball</span>
+      </p>
+    <p> Summary: {{activity.summary}} </p>
+
+    <div class="comment-window">
+      <p>Comments-</p>
+      <div ng-repeat="comment in workout.comments">
+        <p>  {{comment.author.name}} <small>({{comment.author.email}})</small>: {{comment.body}} </p>
+      </div>
+      <h5>Add Comment</h5>
+      <input type="text" ng-model="comment.body" placeholder="Comment here...">
+      <button ng-click="vm.addComment(workout, comment)">Post</button>
+    </div>
+
+  </div>

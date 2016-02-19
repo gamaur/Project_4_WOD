@@ -5,9 +5,9 @@
     .module('workoutOfDay')
     .controller('WorkoutsController', WorkoutsController);
 
-    WorkoutsController.$inject = ["$log", "$scope", "$http", "workoutDataService", "userDataService"];
+    WorkoutsController.$inject = ["$log", "$scope", "$http", "workoutDataService", "userDataService", "$stateParams"];
 
-function WorkoutsController($log, $scope, $http, workoutDataService, userDataService){
+function WorkoutsController($log, $scope, $http, workoutDataService, userDataService, $stateParams){
      var vm = this;
 
      vm.currentUser = userDataService.user;
@@ -68,10 +68,10 @@ function WorkoutsController($log, $scope, $http, workoutDataService, userDataSer
       };
 
       vm.addComment = function addComment(workout, comment){
-        $log.log("click add comment");
+        // $log.log("click add comment");
         if(comment.body) {
-          $log.log(vm.workout);
-          $log.log(vm.currentUser._id);
+          // $log.log(vm.workout);
+          // $log.log(vm.currentUser._id);
           $http.post('/api/workouts/' + workout._id + '/comments',
             {
               body: comment.body,

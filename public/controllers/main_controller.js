@@ -5,16 +5,21 @@
       .module("workoutOfDay")
       .controller("MainController", MainController);
 
-    MainController.$inject = ["$log", "workoutDataService", "$state", "authService", "userDataService"];
+    MainController.$inject = ["$log", "$state", "authService", "userDataService"];
 
-    function MainController($log, workoutDataService, $state, authService, userDataService) {
+    function MainController($log, $state, authService, userDataService) {
       var vm = this;
 
+      // vm.currentUser = userDataService.user;
       vm.currentUser = authService.currentUser;
+
       vm.logout = authService.logout;
       vm.isLoggedIn = authService.isLoggedIn;
 
       vm.$state = $state;
+
+     // $log.log(vm.currentUser);
+
 
       // vm.workouts = workoutDataService
 
