@@ -1,3 +1,5 @@
+<!-- Workouts List -->
+
 <div class="workout-list" ng-repeat="workout in vm.workouts | orderBy: '-fav_counter' ">
    <h4>{{workout.title}} </h4>
    <span ng-click="vm.addFavCount(favorite)">
@@ -23,17 +25,17 @@
             <button ng-click="vm.addComment(workout, comment)">Post</button>
        </div>
      </div>
-
+    <!-- Angular Filter Forms -->
     <form class="workout-form" ng-submit="vm.createWorkout()">
        <h4>Add a Workout</h4>
-         <p> Title: <input type="text" ng-model="vm.title"> </p>
-         <p> Warm-up: <input type="text" ng-model="vm.warm_up"> </p>
-         <p> Rounds: <input type="text" ng-model="vm.rounds"> </p>
-         <p> Set Length: <input type="text" ng-model="vm.set_length"> </p>
-         <p> <input type="radio" ng-model="vm.medium_weights" ng-value="true"> Medium Weights <input type="radio" ng-model="vm.heavy_weights" ng-value="false"> Heavy Weights </p>
-         <p> <input type="radio" ng-model="vm.jumprope" ng-value="true"> Jumprope <input type="radio" ng-model="vm.resistance_bands" ng-value="false"> Resistance Bands</p>
-         <p> <input type="radio" ng-model="vm.kettle_ball" ng-value="true"> Kettle Bell <input type="radio" ng-model="vm.slam_ball" ng-value="false"> Slam Ball</p>
-         <p><input type="radio" ng-model="vm.ab_mat" ng-value="false"> Ab Mat</p>
-         <p> Summary: <input type="text" ng-model="vm.summary"> </p>
+         <p> Title: <input type="text" ng-model="vm.workoutData.title"> </p>
+         <p> Warm-up: <input type="text" ng-model="vm.workoutData.warm_up"> </p>
+         <p> Rounds: <input type="text" ng-model="vm.workoutData.rounds"> </p>
+         <p> Set Length: <input type="text" ng-model="vm.workoutData.set_length"> </p>
+         <p> <input type="radio" ng-model="vm.workoutData.medium_weights" ng-value="true"> Medium Weights <input type="radio" ng-model="vm.workoutData.heavy_weights" ng-value="false"> Heavy Weights </p>
+         <p> <input type="radio" ng-model="vm.workoutData.jumprope" ng-value="true"> Jumprope <input type="radio" ng-model="vm.workoutData.resistance_bands" ng-value="false"> Resistance Bands</p>
+         <p> <input type="radio" ng-model="vm.workoutData.kettle_ball" ng-value="true"> Kettle Bell <input type="radio" ng-model="vm.workoutData.slam_ball" ng-value="false"> Slam Ball</p>
+         <p><input type="radio" ng-model="vm.workoutData.ab_mat" ng-value="false"> Ab Mat</p>
+         <p> Summary: <input type="text" ng-model="vm.workoutData.summary"> </p>
        <button ng-click="submit">Submit</button>
     </form>
