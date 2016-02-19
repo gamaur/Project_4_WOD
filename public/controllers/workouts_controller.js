@@ -5,14 +5,18 @@
     .module('workoutOfDay')
     .controller('WorkoutsController', WorkoutsController);
 
-    WorkoutsController.$inject = ["$log", "$scope", "$http", "workoutDataService"];
+    WorkoutsController.$inject = ["$log", "$scope", "$http", "workoutDataService", "userDataService"];
 
-function WorkoutsController($log, $scope, $http, activityDataService){
+function WorkoutsController($log, $scope, $http, workoutDataService, userDataService){
      var vm = this;
+
+     vm.currentUser = userDataService.user;
 
      vm.getWorkouts = getWorkouts;
 
      vm.workouts = workoutDataService.all;
+
+     vm.workout = workoutDataService._id;
 
      vm.getWorkouts();
 
@@ -27,6 +31,7 @@ function WorkoutsController($log, $scope, $http, activityDataService){
       function createWorkout(){
         workoutDataService.createWorkout(vm.workoutData)
           .success(function(data) {
+        $log.log(vm.currentUser._id);
             vm.workouts.push(
               {
                 title: vm.workoutData.title,
@@ -49,7 +54,7 @@ function WorkoutsController($log, $scope, $http, activityDataService){
             );
             vm.workoutData = {};
           });
-        $log.log(vm.workoutData);
+        // $log.log(vm.workoutData);
       };
 
       function addFavCount(workout){
@@ -66,9 +71,11 @@ function WorkoutsController($log, $scope, $http, activityDataService){
         $log.log("click add comment");
         if(comment.body) {
           $log.log(vm.workout);
+          $log.log(vm.currentUser._id);
           $http.post('/api/workouts/' + workout._id + '/comments',
             {
-              body: comment.body
+              body: comment.body,
+              author: vm.currentUser._id
             }
           ).then(function(res) {
             workout.comments.push(res.data);

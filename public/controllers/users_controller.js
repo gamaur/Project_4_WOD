@@ -5,17 +5,15 @@
     .module('workoutOfDay')
     .controller('UsersController', UsersController);
 
-    UsersController.$inject = ["$log", "$http", "userDataService"];
+    UsersController.$inject = ["$log", "$http", "userDataService",  "authService", "$state"];
 
-    function UsersController($log, $http, userDataService){
+    function UsersController($log, $http, userDataService, authService, $state){
       var vm = this;
 
+      vm.currentUser = authService.currentUser
 
-      function getUsers (){
-        userDataService.getUsers();
-        vm.users = userDataService.all;
-      }
 
+      vm.currentUser = authService.currentUser;
       vm.createUser = createUser;
 
       function createUser(){
@@ -25,6 +23,7 @@
             vm.userData = {};
           });
         $log.log(vm.userData);
+        $state.go('home')
       };
 
 

@@ -13,12 +13,19 @@
       .state("home", {
         url: "/",
         templateUrl: "/templates/home.html",
-        controller: "WorkoutsController",
+        controller: "MainController",
         controllerAs: "vm"
       })
       .state("workouts", {
-        url: "/workouts/{id}",
+        url: "/workouts/",
         templateUrl: "/templates/workouts.html",
+        controller: "WorkoutsController",
+        controllerAs: "vm"
+      })
+
+      .state("workout", {
+        url: "workouts/{id}",
+        templateUrl: "/templates/workout.html",
         controller: "WorkoutsController",
         controllerAs: "vm"
       })
@@ -27,6 +34,13 @@
         url: "/register",
         templateUrl: "/templates/register.html",
         controller: "UsersController",
+        controllerAs: "vm"
+      })
+
+      .state("login", {
+        url: "/login",
+        templateUrl: "/templates/login.html",
+        controller: "LoginController",
         controllerAs: "vm"
       })
 

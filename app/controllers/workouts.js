@@ -28,6 +28,7 @@ var show = function(req, res, next){
 var create = function(req, res, next){
   var workout = new Workout();
 
+  workout.author = req.body.author,
   workout.title = req.body.title,
   workout.warm_up = req.body.warm_up,
   workout.rounds = req.body.rounds,
@@ -95,8 +96,7 @@ var createComment = function(req, res) {
   Workout.findById(req.params.id, function(err, workout) {
     workout.comments.push({
       body: req.body.body,
-      author: req.body._id
-      // author: '5670903aa273ce43d355841d'
+      author: req.body.author
     });
     workout.save(function(err) {
       Workout.findById(req.params.id).populate('comments.author').exec(function(err, workout) {
@@ -106,6 +106,24 @@ var createComment = function(req, res) {
   });
 }
 
+var favCount = function(req, res) {
+  Workout.findById(id, function(err, workout){
+    if (err) {
+      res.send(err);
+    }
+    if (req.body.favorite) activity.favorite = req.body.favorite;
+    if (req.body.fav_counter) activity.fav_counter = req.body.fav_counter;
+
+    workout.save(function(err, updatedWorkout){
+      if (err){
+        res.send(err);
+      }
+      console.log("Workout updated");
+      res.json(updatedWorkout);
+    });
+  });
+};
+
 
 module.exports = {
   index: index,
@@ -113,5 +131,6 @@ module.exports = {
   create: create,
   update: update,
   destroy: destroy,
-  createComment: createComment
+  createComment: createComment,
+  favCount: favCount
 };

@@ -8,12 +8,14 @@ var users = [
   { // 0
     name:   "gamaur",
     email: "gamaur@gamaur.com",
+    password: "abc1103"
     // workout: "Activity 1"
   },
 
   { // 1
     name:   "sarissa",
     email: "sarissa@sarissa.com",
+    password: "abc1104"
     // workout: "Activity 2"
   }
 ];

@@ -2,7 +2,7 @@
   "use strict";
 
   angular
-    .module("playtimePicks")
+    .module("workoutOfDay")
     .factory("userDataService", userDataService);
 
   userDataService.$inject = ["$http"];
