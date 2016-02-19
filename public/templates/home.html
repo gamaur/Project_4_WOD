@@ -1,21 +1,10 @@
-<!-- Workouts List -->
-    <div class="workouts-container">
-       <div class="workout-list box-shadow--4dp animate-repeat" ng-repeat="workout in vm.workouts | orderBy: '-fav_counter'| filter:{medium_weights:filter.medium_weights, heavy_weights:filter.heavy_weights, jumprope:filter.jumprope, resistance_bands:filter.resistance_bands, kettle_ball:filter.kettle_ball, slam_ball:filter.slam_ball, ab_mat:filter.ab_mat}">
-       <div class="workout-info">
-         <h4> <a ng-model="workout._id" value="{{workout._id}}"> {{workout.title}} </a> </h4>
-         <span ng-click="vm.addFavCount(workout)">
-           <i ng-class="{'glyphicon glyphicon-heart': liked, 'glyphicon glyphicon-heart-empty': !liked}" ng-click="liked=!liked"></i>
-         <!-- <p> Favorite: {{activity.favorite}} </p> -->
-          {{workout.fav_counter}}
-         </span>
-         <br>
-         <p> Date Posted: {{workout.workout_date | date:"MM/dd/yyyy"}} </p>
-         <p>
-         <span ng-show="workout.medium_weights">Medium Weights </span> <span ng-hide="workout.heavy_weights">Heavy Weights</span>
-         | <span ng-show="workout.jumprope">Jumprope</span> <span ng-hide="workout.resistance_bands">Resistance Bands</span>
-         | <span ng-show="workout.kettle_ball"> Kettle Ball</span> <span ng-hide="workout.slam_ball"> Slam Ball</span>
-         </p>
-         </div>
-         <div class="activity-summary"> {{workout.summary}} </div>
-     </div>
-   </div>
+<div class="home-container box-shadow--4dp">
+  <p class="header-font">Welcome to Playtime Picks</p>
+  <hr>
+  <p>
+  Find something fun to do today with your kids!
+  Easily find fun activities for how you're feeling by using our simple filter bar.
+  If you have any great activities to share with others feel free to sign-up and add it to the list, you can also leave comments on other activities on this site.
+  Hopefully you'll be inspired to try something fun and new!
+  </p>
+  </div>

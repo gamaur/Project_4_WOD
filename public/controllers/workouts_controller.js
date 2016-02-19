@@ -32,10 +32,10 @@ function WorkoutsController($state, $log, $scope, $http, workoutDataService, use
      }
 
       function createWorkout(){
-        $log.log(vm.workoutData.author);
+        // $log.log(vm.workoutData.author);
         workoutDataService.createWorkout(vm.workoutData)
           .success(function(data) {
-        $log.log(vm.currentUser._id);
+        // $log.log(vm.currentUser._id);
             vm.workouts.push(
               {
                 title: vm.workoutData.title,
@@ -57,6 +57,7 @@ function WorkoutsController($state, $log, $scope, $http, workoutDataService, use
               }
             );
             vm.workoutData = {};
+            $state.go('workouts');
           });
         // $log.log(vm.workoutData);
       };
@@ -64,13 +65,13 @@ function WorkoutsController($state, $log, $scope, $http, workoutDataService, use
       function getActivity(id){
         workoutDataService.getWorkout(id).then(function(response){
           vm.workout = response.data;
-        $log.log("workout is " +vm.workout.title);
+        // $log.log("workout is " +vm.workout.title);
 
       }, function(errRes){
           console.error('Error getting workout!', errRes);
       });
 
-        $log.log("workout is " +vm.workout);
+        // $log.log("workout is " +vm.workout);
 
       }
 
@@ -78,7 +79,7 @@ function WorkoutsController($state, $log, $scope, $http, workoutDataService, use
         // $log.log("click add comment");
         if(comment.body) {
           // $log.log(vm.workout);
-          $log.log(vm.currentUser._id);
+          // $log.log(vm.currentUser._id);
           $http.post('/api/workouts/' + workout._id + '/comments',
             {
               body: comment.body,

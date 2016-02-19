@@ -12,7 +12,7 @@
     $stateProvider
       .state("home", {
         url: "/",
-        templateUrl: "/templates/workouts.html",
+        templateUrl: "/templates/home.html",
         controller: "WorkoutsController",
         controllerAs: "vm"
       })
