@@ -1,7 +1,7 @@
 <div class="workout-list" ng-repeat="workout in vm.workouts | filter:{_id:$location.path()}">
     <h4> {{workout.title}} </h4>
     <span ng-click="vm.addFavCount(workout)">
-      <i ng-class="{'glyphicon glyphicon-heart': liked, 'glyphicon glyphicon-heart-empty': !liked}" ng-click="liked=!liked"></i>
+      <i ng-class="{'glyphicon glyphicon-star': liked, 'glyphicon glyphicon-star-empty': !liked}" ng-click="liked=!liked"></i>
     </span>
     <p> Favorite: {{workout.favorite}} </p>
     <p> Fav'ed: {{workout.fav_counter}} </p>

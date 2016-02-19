@@ -56,11 +56,12 @@ function WorkoutsController($state, $log, $scope, $http, workoutDataService, use
               }
             );
             vm.workoutData = {};
+            vm.getWorkouts()
             $state.go('workouts');
           });
         // $log.log(vm.workoutData);
       };
-
+      $scope.$watch(vm.workouts)
       function getWorkout(id){
         workoutDataService.getWorkout(id).then(function(response){
           vm.workout = response.data;
@@ -98,32 +99,7 @@ function WorkoutsController($state, $log, $scope, $http, workoutDataService, use
           } else {
             (workout.fav_counter -=1)
           };
-        // $http.put('/api/activities/' + activity._id + '/favCount',
-        // {
-        //   favorite: activity.favorite,
-        //   fav_counter: activity.fav_counter
-        // }
-        // ).then(getActivities);
-
         };
-
-        //////////////////////////
-        //FOR FLOATING FILTERBAR//
-        //////////////////////////
-        // function sticky_relocate() {
-        //     var window_top = $(window).scrollTop();
-        //     var div_top = $('#sticky-anchor').offset().top;
-        //     if (window_top > div_top) {
-        //         $('#sticky').addClass('stick');
-        //     } else {
-        //         $('#sticky').removeClass('stick');
-        //     }
-        // }
-
-        // $(function () {
-        //     $(window).scroll(sticky_relocate);
-        //     sticky_relocate();
-        // });
 }
 
 })();

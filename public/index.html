@@ -19,7 +19,7 @@
     <div id="top-container">
       <h1>Workout Of The Day</h1>
       <div ng-hide="vm.isLoggedIn()">
-        <h5>Please Log In or Sign Up</h5>
+        <h5>Please Log In or Register</h5>
       </div>
       <div ng-show="vm.isLoggedIn()">
         <h5>You're Logged In!
@@ -31,7 +31,7 @@
         <!-- <button ui-sref-active="active" ui-sref="about"> About </button> -->
         <button ui-sref-active="active" ui-sref="addWorkout"> Add Workout </button>
 
-        <button ui-sref-active="active" ng-hide="vm.isLoggedIn()"ui-sref="register"> Sign Up </button>
+        <button ui-sref-active="active" ng-hide="vm.isLoggedIn()"ui-sref="register"> Register </button>
         <button ui-sref-active="active" ng-hide="vm.isLoggedIn()"ui-sref="login"> Log In </button>
       </div>
       <ui-view></ui-view>
