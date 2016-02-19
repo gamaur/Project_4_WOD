@@ -12,8 +12,8 @@
     $stateProvider
       .state("home", {
         url: "/",
-        templateUrl: "/templates/home.html",
-        controller: "MainController",
+        templateUrl: "/templates/workouts.html",
+        controller: "WorkoutsController",
         controllerAs: "vm"
       })
       .state("workouts", {
@@ -26,6 +26,13 @@
       .state("workout", {
         url: "workouts/{id}",
         templateUrl: "/templates/workout.html",
+        controller: "WorkoutsController",
+        controllerAs: "vm"
+      })
+
+      .state("addWorkout", {
+        url: "/add_workout",
+        templateUrl: "/templates/add_workout.html",
         controller: "WorkoutsController",
         controllerAs: "vm"
       })

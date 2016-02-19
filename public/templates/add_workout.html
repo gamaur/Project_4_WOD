@@ -1,0 +1,27 @@
+<!-- Create Activity Form -->
+    <form class="workout-form" ng-submit="vm.createWorkout()">
+       <h4>Add a Workout</h4>
+         <div> Title: <input type="text" ng-model="vm.workoutData.title"> </div>
+         <p> Warm-up: <input type="text" ng-model="vm.workoutData.warm_up"> </p>
+         <p> Rounds: <input type="text" ng-model="vm.workoutData.rounds"> </p>
+         <p> Set Length: <input type="text" ng-model="vm.workoutData.set_length"> </p>
+         <table id="radio-table">
+          <tr>
+            <td><input type="radio" ng-model="vm.workoutData.medium_weights" ng-value="true">Medium Weights</td>
+            <td><input type="radio" ng-model="vm.workoutData.heavy_weights" ng-value="false"> Heavy Weights </td>
+          </tr>
+          <tr>
+            <td><input type="radio" ng-model="vm.workoutData.jumprope" ng-value="true"> Jumprope</td>
+            <td><input type="radio" ng-model="vm.workoutData.resistance_bands" ng-value="false"> Resistance Bands</td>
+          </tr>
+          <tr>
+            <td><input type="radio" ng-model="vm.workoutData.kettle_ball" ng-value="true"> Kettle Bell</td>
+            <td><input type="radio" ng-model="vm.workoutData.slam_ball" ng-value="false"> Slam Ball</td>
+          </tr>
+          </table>
+          <div> Summary:
+            <input class="summary-field" type="text" ng-model="vm.workoutData.summary">
+            </div>
+       <button ng-click="submit">Submit</button>
+        </form>
+      </div>

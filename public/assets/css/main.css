@@ -1,25 +1,44 @@
+body {
+  padding: 20px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  }
+
 a {
     color: #00B7FF;
   }
 
- .workout-list {
-   border: 1px solid black;
-   margin: 5px;
-   padding: 5px;
+ .affix {
+  top:50px;
+  right: 0;
+  position: fixed;
  }
 
- .workout-form {
+ #container{
+  width: 1000px;
+  margin: 0 auto;
+ }
+
+#top-container{
   text-align: center;
-  border: 1px dashed blue;
-  margin: 5px;
-  padding: 5px;
-  width: 30em;
- }
+  margin: 0 5px 20px;
+}
 
- .summary-field {
-  width: 25em;
-  height: 10em;
-  }
+.workouts-container{
+  margin: auto;
+  padding: 5px;
+  width: 800px;
+  align-items: center;
+}
+
+.workout-list{
+  border: 1px solid black;
+  margin: 10px auto;
+  padding: 5px;
+  max-width: 600px;
+  align-items: center;
+}
+
+/*Comment Form*/
 
  .comment-window {
   border: 1px solid red;
@@ -34,13 +53,51 @@ a {
   margin: 5px;
   padding: 5px;
 }
+.comment-input {
+  width: 20em;
+}
+
+/*Add Activity Form*/
+.workout-form {
+  display: inline-block;
+  text-align: center;
+  border: 1px solid black;
+  margin: auto;
+  padding: 5px;
+  width: 400px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.workout-form .title-field {
+  width: 20em;
+}
+
+.summary-field {
+  max-width: 25em;
+  max-height: 10em;
+  min-width: 25em;
+  min-height: 10em;
+  text-align: top;
+}
+
+
+/*Filter Form*/
+.filter-container {
+  margin: auto;
+  padding: 5px;
+  width: 800px;
+  align-items: center;
+  justify-content: center;
+}
 
 .filter-form {
   text-align: center;
   border: 1px solid black;
-  margin: 5px;
+  margin: 5px auto;
   padding: 5px;
-  width: 30em;
+  width: 700px;
 }
 
 #radio-table, table, td {
