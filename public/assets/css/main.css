@@ -5,6 +5,7 @@ body {
 
 a {
     color: #00B7FF;
+    cursor: pointer;
   }
 
  .affix {
@@ -53,6 +54,13 @@ a {
   margin: 5px;
   padding: 5px;
 }
+
+.comment-container hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 0;
+  border-top: 1px solid #eee;
+ }
 .comment-input {
   width: 20em;
 }
@@ -97,8 +105,14 @@ a {
   border: 1px solid black;
   margin: 5px auto;
   padding: 5px;
-  width: 700px;
+  width: 400px;
 }
+.filter-form hr {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border: 0;
+  border-top: 1px solid black;
+  }
 
 #radio-table, table, td {
   text-align: left;
