@@ -27,4 +27,9 @@ router.delete('/workouts/:id', usersController.tokenVerify, workoutsController.d
 router.post('/workouts/:id/comments', usersController.tokenVerify, workoutsController.createComment);
 router.put('/workouts/:id/favCount',  usersController.tokenVerify, workoutsController.favCount);
 
+router.get('/me', usersController.tokenVerify, function(req, res){
+  res.send(req.decoded);
+});
+
+
 module.exports = router;

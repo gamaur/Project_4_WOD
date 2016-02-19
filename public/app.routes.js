@@ -17,14 +17,14 @@
         controllerAs: "vm"
       })
       .state("workouts", {
-        url: "/workouts/",
+        url: "/workouts",
         templateUrl: "/templates/workouts.html",
         controller: "WorkoutsController",
         controllerAs: "vm"
       })
 
       .state("workout", {
-        url: "workouts/{id}",
+        url: "workouts/id",
         templateUrl: "/templates/workout.html",
         controller: "WorkoutsController",
         controllerAs: "vm"

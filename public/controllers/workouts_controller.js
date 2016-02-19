@@ -5,9 +5,9 @@
     .module('workoutOfDay')
     .controller('WorkoutsController', WorkoutsController);
 
-    WorkoutsController.$inject = ["$log", "$scope", "$http", "workoutDataService", "userDataService", "$stateParams"];
+    WorkoutsController.$inject = ["$state", "$log", "$scope", "$http", "workoutDataService", "userDataService", "authService"];
 
-function WorkoutsController($log, $scope, $http, workoutDataService, userDataService, $stateParams){
+function WorkoutsController($state, $log, $scope, $http, workoutDataService, userDataService, authService){
      var vm = this;
 
      vm.currentUser = userDataService.user;
@@ -16,19 +16,23 @@ function WorkoutsController($log, $scope, $http, workoutDataService, userDataSer
 
      vm.workouts = workoutDataService.all;
 
-     vm.workout = workoutDataService._id;
+     vm.isLoggedIn = authService.isLoggedIn;
 
      vm.getWorkouts();
+
+     vm.createWorkout = createWorkout;
+     vm.getWorkout = getWorkout;
+     vm.addFavCount = addFavCount;
+
+     $log.log(vm.currentUser);
 
      function getWorkouts (){
         workoutDataService.getWorkouts();
         vm.workouts = workoutDataService.all;
      }
 
-    vm.createWorkout = createWorkout;
-      vm.addFavCount = addFavCount;
-
       function createWorkout(){
+        $log.log(vm.workoutData.author);
         workoutDataService.createWorkout(vm.workoutData)
           .success(function(data) {
         $log.log(vm.currentUser._id);
@@ -57,21 +61,24 @@ function WorkoutsController($log, $scope, $http, workoutDataService, userDataSer
         // $log.log(vm.workoutData);
       };
 
-      function addFavCount(workout){
-        // $log.log("click");
-        workout.favorite = !workout.favorite;
-        if (workout.favorite === true){
-          (workout.fav_counter +=1)
-         } else {
-           (workout.fav_counter -=1)
-         };
-      };
+      function getActivity(id){
+        workoutDataService.getWorkout(id).then(function(response){
+          vm.workout = response.data;
+        $log.log("workout is " +vm.workout.title);
+
+      }, function(errRes){
+          console.error('Error getting workout!', errRes);
+      });
+
+        $log.log("workout is " +vm.workout);
+
+      }
 
       vm.addComment = function addComment(workout, comment){
         // $log.log("click add comment");
         if(comment.body) {
           // $log.log(vm.workout);
-          // $log.log(vm.currentUser._id);
+          $log.log(vm.currentUser._id);
           $http.post('/api/workouts/' + workout._id + '/comments',
             {
               body: comment.body,
@@ -83,6 +90,40 @@ function WorkoutsController($log, $scope, $http, workoutDataService, userDataSer
           comment.body = "";
         }
       };
+      function addFavCount(workout){
+        // $log.log("click");
+        workout.favorite = !workout.favorite;
+        if (workout.favorite === true){
+            (workout.fav_counter +=1)
+          } else {
+            (workout.fav_counter -=1)
+          };
+        // $http.put('/api/activities/' + activity._id + '/favCount',
+        // {
+        //   favorite: activity.favorite,
+        //   fav_counter: activity.fav_counter
+        // }
+        // ).then(getActivities);
+
+        };
+
+        //////////////////////////
+        //FOR FLOATING FILTERBAR//
+        //////////////////////////
+        // function sticky_relocate() {
+        //     var window_top = $(window).scrollTop();
+        //     var div_top = $('#sticky-anchor').offset().top;
+        //     if (window_top > div_top) {
+        //         $('#sticky').addClass('stick');
+        //     } else {
+        //         $('#sticky').removeClass('stick');
+        //     }
+        // }
+
+        // $(function () {
+        //     $(window).scroll(sticky_relocate);
+        //     sticky_relocate();
+        // });
 }
 
 })();
