@@ -16,17 +16,15 @@
        <div class="comment-window">
          <p>Comments-</p>
          <div ng-repeat="comment in workout.comments">
-           <p>  {{comment.author}}: {{comment.body}} </p>
+           <p>  {{comment.author.name}} <small>({{comment.author.email}})</small>: : {{comment.body}} </p>
          </div>
-         <form class="comment-form" ng-submit="addComment()">
             <h5>Add Comment</h5>
-            <input type="text" ng-model="body" placeholder="Comment here...">
-            <button ng-click="submit">Post</button>
-        </form>
+            <input type="text" ng-model="comment.body" placeholder="Comment here...">
+            <button ng-click="vm.addComment(workout, comment)">Post</button>
        </div>
      </div>
 
-    <form class="workout-form" ng-submit="vm.addWorkout()">
+    <form class="workout-form" ng-submit="vm.createWorkout()">
        <h4>Add a Workout</h4>
          <p> Title: <input type="text" ng-model="vm.title"> </p>
          <p> Warm-up: <input type="text" ng-model="vm.warm_up"> </p>

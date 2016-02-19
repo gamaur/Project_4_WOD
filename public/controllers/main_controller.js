@@ -68,49 +68,49 @@
       //   }
       // ];
 
-vm.addWorkout = addWorkout;
-vm.addFavCount = addFavCount;
+// vm.addWorkout = addWorkout;
+// vm.addFavCount = addFavCount;
 
-      function addWorkout(){
-        vm.workouts.push(
-          {
-            title: vm.title,
-            warm_up: vm.warm_up,
-            rounds: vm.rounds,
-            set_length: vm.set_length,
-            medium_weights: false,
-            heavy_weights: false,
-            jumprope: false,
-            resistance_bands: false,
-            kettle_ball: false,
-            slam_ball: false,
-            ab_mat: false,
-            summary: vm.summary,
-            activity_date: new Date,
-            favorite: false,
-            fav_counter: 0,
-            comments: [
-            {author: "Theo", body: "This workout kicked my ass!"},
-            {author: "Linus", body: "This workout can get a repetitive."}
-            ]
-            }
-          );
-        vm.title = "";
-        vm.warm_up = "";
-        vm.rounds = "";
-        vm.set_length = "";
-        vm.summary = "";
-      };
+      // function addWorkout(){
+      //   vm.workouts.push(
+      //     {
+      //       title: vm.title,
+      //       warm_up: vm.warm_up,
+      //       rounds: vm.rounds,
+      //       set_length: vm.set_length,
+      //       medium_weights: false,
+      //       heavy_weights: false,
+      //       jumprope: false,
+      //       resistance_bands: false,
+      //       kettle_ball: false,
+      //       slam_ball: false,
+      //       ab_mat: false,
+      //       summary: vm.summary,
+      //       workout_date: new Date,
+      //       favorite: false,
+      //       fav_counter: 0,
+      //       comments: [
+      //       {author: "Theo", body: "This workout kicked my ass!"},
+      //       {author: "Linus", body: "This workout can get a repetitive."}
+      //       ]
+      //       }
+      //     );
+      //   vm.title = "";
+      //   vm.warm_up = "";
+      //   vm.rounds = "";
+      //   vm.set_length = "";
+      //   vm.summary = "";
+      // };
 
-      function addFavCount(workout){
-        // $log.log("click");
-        workout.favorite = !workout.favorite;
-        if (workout.favorite === true){
-          (workout.fav_counter +=1)
-        } else {
-          (workout.fav_counter -=1)
-       };
-     };
+     //  function addFavCount(workout){
+     //    // $log.log("click");
+     //    workout.favorite = !workout.favorite;
+     //    if (workout.favorite === true){
+     //      (workout.fav_counter +=1)
+     //    } else {
+     //      (workout.fav_counter -=1)
+     //   };
+     // };
 
     };
 

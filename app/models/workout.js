@@ -1,6 +1,11 @@
 var mongoose = require('mongoose'),
     debug    = require('debug')('app:models');
 
+var commentSchema = new mongoose.Schema({
+    body: String,
+    author: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+ });
+
 var workoutSchema = new mongoose.Schema({
   author: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
   title: String,
@@ -15,10 +20,10 @@ var workoutSchema = new mongoose.Schema({
   slam_ball: Boolean,
   ab_mat: Boolean,
   summary: String,
-  activity_date: Date,
+  workout_date: {type: Date, default: Date.now},
   favorite: Boolean,
   fav_counter: {type: Number, default: 0},
-  comments: [{type: mongoose.Schema.Types.ObjectId, ref: 'Comment'}]
+  comments: [commentSchema]
 });
 
 var Workout = mongoose.model('Workout', workoutSchema);

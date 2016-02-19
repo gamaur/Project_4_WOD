@@ -4,13 +4,14 @@ var Workout = require("../models/workout");
 //Get all Workouts
 var index = function(req, res, next){
 
-  Workout.find({}, function(err, workouts){
-    if (err) {
-      res.send(err);
-    }
-    res.json(workouts)
-  });
-};
+  Workout.find({}).populate('comments.author')
+      .exec(function(err, workouts){
+      if (err) {
+        res.send(err);
+      }
+      res.json(workouts)
+    });
+  }
 
 //Get One Workout
 var show = function(req, res, next){
@@ -49,7 +50,7 @@ var create = function(req, res, next){
   });
 };
 
-//Update an Activity
+//Update a Workout
 var update = function(req, res, next){
   var id = req.params.id;
   Workout.findById(id, function(err, workout){
@@ -79,7 +80,7 @@ var update = function(req, res, next){
   });
 };
 
-//Delete an Activity
+//Delete an Workout
 var destroy = function(req, res) {
   var id = req.params.id;
   Workout.remove({"_id" : id}, function(err){
@@ -90,10 +91,27 @@ var destroy = function(req, res) {
   });
 };
 
+var createComment = function(req, res) {
+  Workout.findById(req.params.id, function(err, workout) {
+    workout.comments.push({
+      body: req.body.body,
+      author: req.body._id
+      // author: '5670903aa273ce43d355841d'
+    });
+    workout.save(function(err) {
+      Workout.findById(req.params.id).populate('comments.author').exec(function(err, workout) {
+        res.json(workout.comments.pop());
+      })
+    });
+  });
+}
+
+
 module.exports = {
   index: index,
   show:  show,
   create: create,
   update: update,
-  destroy: destroy
+  destroy: destroy,
+  createComment: createComment
 };
