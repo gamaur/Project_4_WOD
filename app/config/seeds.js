@@ -2,7 +2,7 @@ var mongoose = require('./database');
 
 var User = require('../models/user');
 var Workout = require('../models/workout');
-var Comments = require('../models/comment');
+// var Comments = require('../models/comment');
 
 var users = [
   { // 0
@@ -36,7 +36,7 @@ var workouts = [
     title: "MaxOut",
     warm_up: "6 minutes",
     rounds: 2,
-    set_length: "7 minutes"
+    set_length: "7 minutes",
     medium_weights: true,
     heavy_weights: true,
     jumprope: false,
@@ -75,7 +75,7 @@ var workouts = [
 
 Workout.remove({}, function(err) {
   if (err) console.log(err);
-  Workout.create(workouts, function(err, workouts`) {
+  Workout.create(workouts, function(err, workouts) {
     if (err) {
       console.log(err);
     } else {

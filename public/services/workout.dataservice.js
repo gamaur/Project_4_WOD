@@ -16,11 +16,12 @@
 
     //Get All Workouts
     workouts.getWorkouts = function() {
-      return $http.get('/api/workouts/').then(function(response) {
-        workouts.all = response.data;
-      }, function(errRes) {
-        console.error('Error getting workouts!', errRes);
-      });
+      return $http.get('/api/workouts/')
+      // .then(function(response) {
+      //   workouts.all = response.data;
+      // }, function(errRes) {
+      //   console.error('Error getting workouts!', errRes);
+      // });
     };
 
     //Create an workout

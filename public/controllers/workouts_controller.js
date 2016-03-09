@@ -26,8 +26,11 @@ function WorkoutsController($state, $log, $scope, $http, workoutDataService, use
      $log.log(vm.currentUser);
 
      function getWorkouts (){
-        workoutDataService.getWorkouts();
-        vm.workouts = workoutDataService.all;
+        workoutDataService.getWorkouts().then(function (response) {
+          vm.workouts = response.data
+        }, function (err) {
+          console.error("Error getting workouts")
+        });
      }
 
       function createWorkout(){
